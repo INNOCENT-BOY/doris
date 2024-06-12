@@ -1,0 +1,17 @@
+2024-06-12 06:42:02.978 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] No server auth method
+2024-06-12 06:42:02.980 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] Started ServiceDispatcher. HostPort=10.140.213.8:9010
+2024-06-12 06:42:02.980 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] DataChannel factory: com.sleepycat.je.rep.utilint.net.SimpleChannelFactory
+2024-06-12 06:42:03.005 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] DTVLSN at start:0
+2024-06-12 06:42:03.006 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] node:NullNode(-1) state change from DETACHED to UNKNOWN
+2024-06-12 06:42:03.015 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] Current group size: 0
+2024-06-12 06:42:03.015 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] New node fe_729b5312_054a_4e18_9870_ed6023bd3f46(-1) unknown to rep group
+2024-06-12 06:42:03.016 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] Master changed to fe_729b5312_054a_4e18_9870_ed6023bd3f46
+2024-06-12 06:42:03.016 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] Nascent group. fe_729b5312_054a_4e18_9870_ed6023bd3f46 is master by virtue of being the first node.
+2024-06-12 06:42:03.016 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] node:fe_729b5312_054a_4e18_9870_ed6023bd3f46(1) state change from UNKNOWN to MASTER
+2024-06-12 06:42:03.127 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] Successfully added node:fe_729b5312_054a_4e18_9870_ed6023bd3f46(1) HostPort = 10.140.213.8: 9010 [ELECTABLE]
+2024-06-12 06:42:03.150 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] Updated minimum JE group version to 7.5.0
+2024-06-12 06:42:03.150 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] Node fe_729b5312_054a_4e18_9870_ed6023bd3f46 started
+2024-06-12 06:42:03.151 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] node:NullNode(-1) state change from MASTER to UNKNOWN
+2024-06-12 06:42:03.151 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] node:fe_729b5312_054a_4e18_9870_ed6023bd3f46(1) state change from UNKNOWN to MASTER
+2024-06-12 06:42:03.151 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] Feeder manager accepting requests.
+2024-06-12 06:42:03.152 UTC INFO [fe_729b5312_054a_4e18_9870_ed6023bd3f46] Joining group as master

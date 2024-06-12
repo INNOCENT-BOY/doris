@@ -102,6 +102,14 @@ public class AuditEvent {
     public String traceId = "";
     @AuditField(value = "WorkloadGroup")
     public String workloadGroup = "";
+    @AuditField(value = "OlapSource")
+    public String olapSource = "";
+    @AuditField(value = "OlapDb")
+    public String olapDb = "";
+    @AuditField(value = "OlapTbl")
+    public String olapTbl = "";
+    @AuditField(value = "OlapUser")
+    public String olapUser = "";
     // note: newly added fields should be always before fuzzyVariables
     @AuditField(value = "FuzzyVariables")
     public String fuzzyVariables = "";
@@ -241,6 +249,26 @@ public class AuditEvent {
 
         public AuditEventBuilder setWorkloadGroup(String workloadGroup) {
             auditEvent.workloadGroup = workloadGroup;
+            return this;
+        }
+
+        public AuditEventBuilder setOlapSource(String source) {
+            auditEvent.olapSource = source;
+            return this;
+        }
+
+        public AuditEventBuilder setOlapDb(String db) {
+            auditEvent.olapDb = db;
+            return this;
+        }
+
+        public AuditEventBuilder setOlapTbl(String tbl) {
+            auditEvent.olapTbl = tbl;
+            return this;
+        }
+
+        public AuditEventBuilder setOlapUser(String user) {
+            auditEvent.olapUser = user;
             return this;
         }
 

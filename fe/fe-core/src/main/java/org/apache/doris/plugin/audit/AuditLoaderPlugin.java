@@ -176,7 +176,12 @@ public class AuditLoaderPlugin extends Plugin implements AuditPlugin {
         if (LOG.isDebugEnabled()) {
             LOG.debug("receive audit event with stmt: {}", stmt);
         }
-        logBuffer.append(stmt).append("\n");
+        LOG.warn("stmt:" + stmt);
+        logBuffer.append(stmt).append("\t");
+        logBuffer.append(event.olapSource).append("\t");
+        logBuffer.append(event.olapDb).append("\t");
+        logBuffer.append(event.olapTbl).append("\t");
+        logBuffer.append(event.olapUser).append("\n");
     }
 
     private String truncateByBytes(String str) {

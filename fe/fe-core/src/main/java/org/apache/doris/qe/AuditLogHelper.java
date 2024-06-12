@@ -17,6 +17,7 @@
 
 package org.apache.doris.qe;
 
+import java.util.Map;
 import org.apache.doris.analysis.InsertStmt;
 import org.apache.doris.analysis.Queriable;
 import org.apache.doris.analysis.StatementBase;
@@ -85,6 +86,7 @@ public class AuditLogHelper {
                 .setWorkloadGroup(ctx.getWorkloadGroupName())
                 .setFuzzyVariables(!printFuzzyVariables ? "" : ctx.getSessionVariable().printFuzzyVariables());
 
+
         if (ctx.getState().isQuery()) {
             MetricRepo.COUNTER_QUERY_ALL.increase(1L);
             MetricRepo.USER_COUNTER_QUERY_ALL.getOrAdd(ctx.getQualifiedUser()).increase(1L);
@@ -125,6 +127,11 @@ public class AuditLogHelper {
                 auditEventBuilder.setStmt(origStmt);
             }
         }
+        Map<String, String> customizedProps = SQLMetadataHandler.parseMetadata(origStmt);
+        auditEventBuilder.setOlapSource(customizedProps.getOrDefault("source", "unknown"));
+        auditEventBuilder.setOlapDb(customizedProps.getOrDefault("db", "unknown"));
+        auditEventBuilder.setOlapTbl(customizedProps.getOrDefault("tbl", "unknown"));
+        auditEventBuilder.setOlapUser(customizedProps.getOrDefault("user", "unknown"));
         if (!Env.getCurrentEnv().isMaster()) {
             if (ctx.executor.isForwardToMaster()) {
                 auditEventBuilder.setState(ctx.executor.getProxyStatus());

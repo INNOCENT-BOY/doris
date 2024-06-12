@@ -89,6 +89,10 @@ public class InternalSchema {
         AUDIT_SCHEMA.add(new ColumnDef("peak_memory_bytes", TypeDef.create(PrimitiveType.BIGINT), true));
         AUDIT_SCHEMA.add(new ColumnDef("workload_group", TypeDef.create(PrimitiveType.STRING), true));
         AUDIT_SCHEMA.add(new ColumnDef("stmt", TypeDef.create(PrimitiveType.STRING), true));
+        AUDIT_SCHEMA.add(new ColumnDef("olap_source", TypeDef.create(PrimitiveType.STRING), true));
+        AUDIT_SCHEMA.add(new ColumnDef("olap_db", TypeDef.create(PrimitiveType.STRING), true));
+        AUDIT_SCHEMA.add(new ColumnDef("olap_tbl", TypeDef.create(PrimitiveType.STRING), true));
+        AUDIT_SCHEMA.add(new ColumnDef("olap_user", TypeDef.create(PrimitiveType.STRING), true));
     }
 
     // Get copied schema for statistic table
