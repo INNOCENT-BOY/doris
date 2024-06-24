@@ -28,6 +28,7 @@ import org.apache.doris.plugin.PluginInfo;
 import org.apache.doris.plugin.PluginInfo.PluginType;
 import org.apache.doris.plugin.PluginMgr;
 import org.apache.doris.qe.GlobalVariable;
+import org.apache.doris.qe.SQLMetadataHandler;
 
 import com.google.common.collect.Queues;
 import org.apache.logging.log4j.LogManager;
@@ -177,7 +178,8 @@ public class AuditLoaderPlugin extends Plugin implements AuditPlugin {
             LOG.debug("receive audit event with stmt: {}", stmt);
         }
         LOG.warn("stmt:" + stmt);
-        logBuffer.append(stmt).append("\t");
+        String removeCommentStmt = SQLMetadataHandler.removeComments(stmt).trim();
+        logBuffer.append(removeCommentStmt).append("\t");
         logBuffer.append(event.olapSource).append("\t");
         logBuffer.append(event.olapDb).append("\t");
         logBuffer.append(event.olapTbl).append("\t");

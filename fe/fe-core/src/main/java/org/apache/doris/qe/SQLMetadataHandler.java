@@ -42,6 +42,16 @@ public class SQLMetadataHandler {
         return wrappedSQL.toString();
     }
 
+    public static String removeComments(String sql) {
+        // 正则表达式匹配 /*...*/ 的注释
+        String regex = "/\\*.*?\\*/";
+        Pattern pattern = Pattern.compile(regex, Pattern.DOTALL);
+        Matcher matcher = pattern.matcher(sql);
+
+        // 使用正则表达式移除注释
+        return matcher.replaceAll("");
+    }
+
     /**
      * 从带有注释的 SQL 语句中提取键值对元数据。
      * @param sql 带有元数据注释的 SQL 语句
