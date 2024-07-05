@@ -51,7 +51,7 @@ inline FileCachePolicy cache_type_from_string(std::string_view type) {
 struct FileReaderOptions {
     FileCachePolicy cache_type {FileCachePolicy::NO_CACHE};
     bool is_doris_table = false;
-    std::string cache_base_path;
+    std::string cache_base_path = "";
     // Length of the file in bytes, -1 means unset.
     // If the file length is not set, the file length will be fetched from the file system.
     int64_t file_size = -1;

@@ -114,7 +114,7 @@ public:
         }
 
         BaseTabletSPtr tablet;
-        TabletSchemaSPtr tablet_schema;
+        TabletSchemaSPtr tablet_schema = nullptr;
         ReaderType reader_type = ReaderType::READER_QUERY;
         bool direct_mode = false;
         bool aggregation = false;
@@ -123,29 +123,29 @@ public:
         bool use_page_cache = false;
         Version version = Version(-1, 0);
 
-        std::vector<OlapTuple> start_key;
-        std::vector<OlapTuple> end_key;
+        std::vector<OlapTuple> start_key = {};
+        std::vector<OlapTuple> end_key = {};
         bool start_key_include = false;
         bool end_key_include = false;
 
-        std::vector<TCondition> conditions;
-        std::vector<std::pair<string, std::shared_ptr<BloomFilterFuncBase>>> bloom_filters;
-        std::vector<std::pair<string, std::shared_ptr<BitmapFilterFuncBase>>> bitmap_filters;
-        std::vector<std::pair<string, std::shared_ptr<HybridSetBase>>> in_filters;
-        std::vector<TCondition> conditions_except_leafnode_of_andnode;
-        std::vector<FunctionFilter> function_filters;
-        std::vector<RowsetMetaSharedPtr> delete_predicates;
+        std::vector<TCondition> conditions = {};
+        std::vector<std::pair<string, std::shared_ptr<BloomFilterFuncBase>>> bloom_filter = {};
+        std::vector<std::pair<string, std::shared_ptr<BitmapFilterFuncBase>>> bitmap_filters = {};
+        std::vector<std::pair<string, std::shared_ptr<HybridSetBase>>> in_filters = {};
+        std::vector<TCondition> conditions_except_leafnode_of_andnode = {};
+        std::vector<FunctionFilter> function_filters = {};
+        std::vector<RowsetMetaSharedPtr> delete_predicates = {};
         // slots that cast may be eliminated in storage layer
-        std::map<std::string, PrimitiveType> target_cast_type_for_variants;
+        std::map<std::string, PrimitiveType> target_cast_type_for_variants = {};
 
-        std::vector<RowSetSplits> rs_splits;
+        std::vector<RowSetSplits> rs_splits = {};
         // For unique key table with merge-on-write
         DeleteBitmap* delete_bitmap = nullptr;
 
         // return_columns is init from query schema
-        std::vector<uint32_t> return_columns;
+        std::vector<uint32_t> return_columns = {};
         // output_columns only contain columns in OrderByExprs and outputExprs
-        std::set<int32_t> output_columns;
+        std::set<int32_t> output_columns = {};
         RuntimeProfile* profile = nullptr;
         RuntimeState* runtime_state = nullptr;
 
@@ -154,14 +154,14 @@ public:
         std::unordered_set<uint32_t>* tablet_columns_convert_to_null_set = nullptr;
         TPushAggOp::type push_down_agg_type_opt = TPushAggOp::NONE;
         vectorized::VExpr* remaining_vconjunct_root = nullptr;
-        std::vector<vectorized::VExprSPtr> remaining_conjunct_roots;
-        vectorized::VExprContextSPtrs common_expr_ctxs_push_down;
+        std::vector<vectorized::VExprSPtr> remaining_conjunct_roots = {};
+        vectorized::VExprContextSPtrs common_expr_ctxs_push_down = {};
 
         // used for compaction to record row ids
         bool record_rowids = false;
         // flag for enable topn opt
         bool use_topn_opt = false;
-        std::vector<int> topn_filter_source_node_ids;
+        std::vector<int> topn_filter_source_node_ids = {};
         // used for special optimization for query : ORDER BY key LIMIT n
         bool read_orderby_key = false;
         // used for special optimization for query : ORDER BY key DESC LIMIT n
@@ -171,11 +171,11 @@ public:
         // limit of rows for read_orderby_key
         size_t read_orderby_key_limit = 0;
         // filter_block arguments
-        vectorized::VExprContextSPtrs filter_block_conjuncts;
+        vectorized::VExprContextSPtrs filter_block_conjuncts = {};
 
         // for vertical compaction
         bool is_key_column_group = false;
-        std::vector<uint32_t> key_group_cluster_key_idxes;
+        std::vector<uint32_t> key_group_cluster_key_idxes = {};
 
         bool is_segcompaction = false;
 

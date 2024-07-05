@@ -39,7 +39,7 @@ struct FileSystemProperties {
     TFileType::type system_type;
     std::map<std::string, std::string> properties;
     THdfsParams hdfs_params;
-    std::vector<TNetworkAddress> broker_addresses;
+    std::vector<TNetworkAddress> broker_addresses = {};
 };
 
 struct FileDescription {
